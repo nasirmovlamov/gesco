@@ -1,26 +1,55 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
-  },
-  "include": [
-    "src"
-  ]
+    "compilerOptions": {
+        "target": "es5",
+        "lib": [
+        "dom",
+        "dom.iterable",
+        "esnext"
+        ],
+        "allowJs": true,
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "noFallthroughCasesInSwitch": true,
+        "module": "esnext",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "noEmit": true,
+        "jsx": "react-jsx",
+        "baseUrl": "src",
+        "paths": {
+            // "@components/*": ["src/app/components/*"],
+            // "@hooks/*": ["./src/app/components/hooks/*"],
+            // "@common/*": ["./src/app/components/common/*"],
+            // "@layout/*": ["./src/app/components/layout/*"],
+            // "@pages/*": ["./src/app/components/pages/*"],
+            // "@template/*": ["./src/app/components/template/*"],
+
+            // "@assets/*": ["./src/app/assets/*"],
+            // "@fonts/*": ["./src/app/assets/fonts/*"],
+            // "@media/*": ["./src/app/assets/media/*"],
+            // "@css*": ["./src/app/assets/style/css*"],
+            // "@scss*": ["./src/app/assets/style/scss*"],
+            // "@bootstrap*": ["./src/app/assets/vendor/bootstrap*"],
+            // "@tailwind*": ["./src/app/assets/vendor/tailwind*"],
+                
+
+            // "@config/*": ["./src/app/config/*"],
+            // "@data/*": ["./src/app/data/*"],
+
+            // "@helpers/*": ["./src/app/helpers/*"],
+            // "@api/*": ["./src/app/helpers/api/*"],
+            // "@utils/*": ["./src/app/helpers/utils/*"],
+            // "@validation/*": ["./src/app/helpers/validation/*"],
+                
+            // "@routes/*": ["././src/app/routes/*"],
+
+            // "@store/*": ["././src/app/store/*"],
+            // "@context/*": ["././src/app/store/context/*"],
+            // "@redux/*": ["././src/app/store/redux/*"],
+        },
+    },
 }
