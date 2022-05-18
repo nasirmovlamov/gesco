@@ -1,6 +1,5 @@
 import React from 'react'
-import { Navigate, Route } from 'react-router-dom';
-import { HomePathedRutesType, HomeRouteType, HomeRouteValueType } from '../pages/home/Home.types';
+import { Navigate } from 'react-router-dom';
 
 export type ProtectedRouteProps = {
     children: React.ReactNode;
@@ -10,18 +9,14 @@ export type ProtectedRouteProps = {
 export const ProtectedRoute = ({children}:ProtectedRouteProps) => {
    
     return (
-        <>
-            {
-                false ?  (
-                    <Navigate 
-                        to="/login" 
-                        replace={true} />
-                    )
-                :
-                (
-                    children
-                )
-            }
-        </>
+        false ?  (
+            <Navigate 
+                to="/login" 
+                replace={true} />
+            )
+        :
+        (
+            <>{children}</>
+        )
     )
 }

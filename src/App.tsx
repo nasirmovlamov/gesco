@@ -1,15 +1,16 @@
-
 import 'app/assets/vendor/bootstrap/bootstrap.scss';
 import 'app/assets/style/scss/style.scss';
 
+import { Provider } from 'react-redux'
 import React from 'react';
-import { Routes } from 'app/components/routes';
+import { Routes } from 'app/components/routes/Routes';
+import { store } from 'app/components/store/store';
 
 function App() {
   return (
-    <div>
+    <Provider store={store}>
       <Routes/>
-    </div>
+    </Provider>
   );
 }
 

@@ -9,6 +9,7 @@
   }
 }
 
+
 .pagination {
   ul {
     padding: 0;
@@ -303,4 +304,9 @@ input[type="checkbox"].ios8-switch-lg:checked + label:after {
   .card-footer {
     text-align: end;
   }
+}
+
+
+.text-primary {
+    color: $primary;
 }

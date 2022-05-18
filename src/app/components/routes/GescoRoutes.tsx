@@ -1,14 +1,13 @@
-import { Home } from "app/components/pages/home";
-import { HomeRoutes } from "../pages/home/Home.routes";
+import { DashboardRoutes } from "../pages/dashboard/Dashboard.routes";
 import { Login } from "../pages/login/Login";
 
 export const gescoRoutes = {
-    Home: {
+    Dashboard: {
         path: '/',
-        component: Home,
+        component: null,
         exact: true,
         permission:'',
-        routes:HomeRoutes
+        routes:DashboardRoutes
     },
     Login: {
         path: '/login',

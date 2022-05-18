@@ -1,1 +1,7 @@
-export {}
+export const Sidebar = () => {
+    return (
+        <>
+            Sidebar
+        </>
+    )
+}

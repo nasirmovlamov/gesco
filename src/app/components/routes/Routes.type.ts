@@ -1,7 +1,5 @@
+import { DashboardRouteType } from "../pages/dashboard/Dashboard.types";
 import { ErrorStatusEnum } from "app/type-definition/enums/statusCode";
-import { HomeRouteType } from "../pages/home/Home.types";
-
-
 
 export type pathTypes = '/login' | '/' | `/${ErrorStatusEnum}` 
 
@@ -11,7 +9,7 @@ export type RoutesType = {
         path: `/${pathTypes}`,
         component: React.FC,
         exact: boolean,
-        routes: HomeRouteType | null,
+        routes: DashboardRouteType | null,
     }
 };
 

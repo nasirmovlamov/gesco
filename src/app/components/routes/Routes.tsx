@@ -1,38 +1,40 @@
-import { BrowserRouter , Route, Routes as ReactRouterRoutes } from "react-router-dom";
-import React from 'react'
-import { gescoRoutes } from "./Rutes";
-import { HomeRouteType, HomeRouteValueType } from "../pages/home/Home.types";
-import { ProtectedRoute } from "./ProtectedRoute";
+import { AppDispatch, useAppDispatch } from "../store/store";
+import { BrowserRouter, Navigate, Routes as ReactRouterRoutes, Route } from "react-router-dom";
+import React, { useEffect } from 'react'
+
+import { APPLICATION_PATH } from "app/helpers/api/services/path";
+import { Dashboard } from "../pages/dashboard/Dashboard";
 import { Login } from "app/components/pages/login/Login";
-import { HomeRoutes } from "../pages/home/Home.routes";
-import { useObjectValuesUtil } from "../hooks/useObjectValuesUtil";
-import { Page404 } from "../pages/404/404";
 import { Page401 } from "../pages/401/401";
 import { Page403 } from "../pages/403/403";
+import { Page404 } from "../pages/404/404";
 import { Page500 } from "../pages/500/500";
-import { Home } from "../pages/home";
-
+import { loginThunk } from "../store/reducers/auth/Auth.thunk";
+import {useDispatch} from 'react-redux'
 
 export const Routes:React.FC = () => {
-    const homeRoutes = useObjectValuesUtil(gescoRoutes.Home.routes);
+    // const dispatch = useAppDispatch()
+    const dispatch = useDispatch<AppDispatch>();
+    
+    useEffect(() => {
+        dispatch(loginThunk(null))
+    }, [])
+    
+
     return (
         <BrowserRouter>
             <ReactRouterRoutes>
-                <Route path={'/'} element={<Home/>}/>
-                <Route path={'/login'} element={<Login/>}/>
-
                 {
-                    homeRoutes.map(
-                        (route:HomeRouteValueType) => 
-                        <Route path={route.path} element={route.component} caseSensitive={false}/>
-                    )
-                }
-                
-                <Route path={'/user-unauthorize'} element={<Page401/>}/>
-                <Route path={'/forbidden'} element={<Page403/>}/>
-                <Route path={'/server-error'} element={<Page500/>}/>
-
-                <Route path={'*'} element={<Page404/>}/>
+                    false ? 
+                    <Route path="/*"  element={<Dashboard/>} />
+                    :
+                    <Route path="/"  element={<Login/>} />
+                } 
+                <Route path={APPLICATION_PATH.UNAUTHORIZED} element={<Page401/>}/>
+                <Route path={APPLICATION_PATH.FORBIDDEN} element={<Page403/>}/>
+                <Route path={APPLICATION_PATH.SERVER_ERROR} element={<Page500/>}/>
+                <Route path={APPLICATION_PATH.LOGIN} element={<Navigate to="/"/>}/>
+                {true &&  <Route path={'*'} element={<Page404/>}/>}
             </ReactRouterRoutes>
         </BrowserRouter>
    )
