@@ -1,7 +1,7 @@
 import { useInputErrorHandle } from "./useInputErrorHandle";
 import { useState } from "react";
 
-export interface EmailInputProps {
+export interface CustomInputProps {
     value: string;
     onChange: (value: string) => void;
     required: boolean;
@@ -14,7 +14,7 @@ export interface EmailInputProps {
 }
 
 
-export const CustomInput = (props: EmailInputProps) => {
+export const CustomInput = (props: CustomInputProps) => {
     const { onChange, required, isFormSubmit, regex , emptyError , invalidError,value ,type, placeHolder} = props
 
     const [isBlured, setIsBlured] = useState(true);
