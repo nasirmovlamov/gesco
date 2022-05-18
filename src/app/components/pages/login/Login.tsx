@@ -7,15 +7,21 @@ import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { CustomInput } from 'app/components/common/input/CustomInput';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import gescoLogo from 'app/assets/media/logos/gesco.png';
+import { useLoginState } from './useLoginState';
 
 export const Login = () => {
-    const [isPasswordVisible, setPasswordVisible] = useState(false);
-    const [isFormSubmit, setFormSubmit] = useState(false);
-    const [emailValue, setEmailValue] = useState('');
-    const [passwordValue, setPasswordValue] = useState('');
-    const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-
+    const {
+        isPasswordVisible,
+        setPasswordVisible,
+        isFormSubmit,
+        setFormSubmit,
+        emailValue,
+        setEmailValue,
+        passwordValue,
+        setPasswordValue,
+        emailRegex,
+        passwordRegex} = useLoginState()
+        
     
     return (
         <div className="login">
@@ -27,7 +33,7 @@ export const Login = () => {
                         <img width={100} src={gescoLogo} alt="logo" />
                         </div>
                         <h4 className="text-center text-primary ">Xoş Gəlmisiniz</h4>
-                        <p className="text-center mb-4">Zəhmət olmasa email və şifrənizi düzgün daxil edin.</p>
+                        {/* <p className="text-center mb-4">Zəhmət olmasa email və şifrənizi düzgün daxil edin.</p> */}
                         <Form onSubmit={(e) => {}}>
                             <div className="form-group">
                                 <Label for="email" className="font-weight-bold">Email</Label>

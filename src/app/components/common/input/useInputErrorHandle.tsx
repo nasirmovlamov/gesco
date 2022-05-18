@@ -43,7 +43,7 @@ export const useInputErrorHandle = ({isFormSubmit , isBlured , isEmpty, isInVali
                     }
             }
         }
-    }, [isBlured,isFormSubmit,])
+    }, [isBlured,isFormSubmit])
     
 
     return ({error, errorClass, errorSpanText})
